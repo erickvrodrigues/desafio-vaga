@@ -1,5 +1,5 @@
 const express = require("express");
-const orderRoutes = require("./routes/orderRoutes");
+const orderRoutes = require("./router/orderRoutes");
 
 
 

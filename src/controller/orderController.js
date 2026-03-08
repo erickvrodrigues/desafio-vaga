@@ -1,4 +1,4 @@
-const service = require("../services/OrderService");
+const service = require("../service/orderService");
 class OrderController{
     async create(req, res) {
     try {
@@ -10,3 +10,4 @@ class OrderController{
   }
 
 }
+module.exports = new OrderController();

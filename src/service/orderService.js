@@ -1,5 +1,5 @@
-const repository = require("../repositories/OrderRepository");
-const { mapRequestToOrder } = require("../../utils/mapper");
+const repository = require("../repository/orderRepository");
+const { mapRequestToOrder } = require("../utils/mapper");
 
 class OrderService{
      async create(data) {

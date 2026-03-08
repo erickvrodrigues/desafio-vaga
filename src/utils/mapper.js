@@ -1,5 +1,5 @@
-const Order = require("../models/Order");
-const Item = require("../models/Item");
+const Order = require("../model/order");
+const Item = require("../model/item");
 
 function mapRequestToOrder(data) {
   const items = data.items.map(i => {
