@@ -1,5 +1,6 @@
 const express = require("express");
 const orderRoutes = require("./router/orderRoutes");
+const errorHandler = require("./middleware/errorHandler")
 
 
 
@@ -8,6 +9,8 @@ const app = express();
 
 app.use(express.json());
 app.use(orderRoutes);
+
+app.use(errorHandler)
 
 
 app.listen(3000, () => {
