@@ -1,4 +1,5 @@
 const express = require("express");
+const orderRoutes = require("./routes/orderRoutes");
 
 
 
@@ -6,7 +7,7 @@ const express = require("express");
 const app = express();
 
 app.use(express.json());
-
+app.use(orderRoutes);
 
 
 app.listen(3000, () => {
