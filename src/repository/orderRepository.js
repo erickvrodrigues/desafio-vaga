@@ -108,6 +108,10 @@ async findAll() {
     const result = await pool.query(`SELECT * FROM "Order"`);
     return result.rows;
   }
+ async delete(orderId) {
+    await pool.query(`DELETE FROM Items WHERE orderId=$1`, [orderId]);
+    await pool.query(`DELETE FROM "Order" WHERE orderId=$1`, [orderId]);
+  }
 
 }
 module.exports = new OrderRepository();
