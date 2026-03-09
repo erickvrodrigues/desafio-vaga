@@ -2,7 +2,7 @@
 
 Esta é uma API REST desenvolvida em **Node.js** com **Express** e banco de dados **PostgreSQL**, voltada para o gerenciamento de pedidos (Orders) e seus respectivos itens, bem como autenticação simples com JWT.
 
-## 🚀 Tecnologias Utilizadas
+##  Tecnologias Utilizadas
 
 - **Node.js**
 - **Express**
@@ -10,13 +10,13 @@ Esta é uma API REST desenvolvida em **Node.js** com **Express** e banco de dado
 - **JWT** (JSON Web Token)
 - **Bcrypt** (para hash de senhas)
 
-## 📋 Pré-requisitos
+##  Pré-requisitos
 
 Para rodar este projeto, você precisará ter instalado em sua máquina:
 - [Node.js](https://nodejs.org/) (versão 14+ recomendada)
 - [PostgreSQL](https://www.postgresql.org/)
 
-## ⚙️ Configuração do Banco de Dados
+##  Configuração do Banco de Dados
 
 1. Certifique-se de que o **PostgreSQL** está rodando localmente na porta `5432`.
 2. Crie um banco de dados chamado `orders`.
@@ -56,7 +56,7 @@ Para rodar este projeto, você precisará ter instalado em sua máquina:
 npm install
 ```
 
-## ▶️ Como Executar
+##  Como Executar
 
 Você pode iniciar o projeto de duas maneiras:
 
@@ -72,7 +72,7 @@ npm start
 
 A API estará rodando em: `http://localhost:3000`
 
-## 🔐 Autenticação (Login)
+##  Autenticação (Login)
 
 Para usar as rotas de pedidos, você precisa fazer login e obter um **Token JWT**.
 O sistema possui um usuário fixo de teste configurado:
@@ -92,7 +92,7 @@ Faça uma requisição `POST` para `http://localhost:3000/login` com o seguinte 
 A resposta retornará um `token`. Você deve enviar este token no Header (Cabeçalho) das demais requisições no formato:
 `Authorization: Bearer SEU_TOKEN_AQUI`
 
-## 📂 Estrutura do Projeto
+##  Estrutura do Projeto
 
 - `src/router/`: Definição das rotas da API.
 - `src/controller/`: Recebe as requisições e envia as respostas.
@@ -103,5 +103,5 @@ A resposta retornará um `token`. Você deve enviar este token no Header (Cabeç
 - `src/model/`: Classes e estruturas de dados.
 
 
-## 📂 A collection com os exploes de requisições se encontra no arquivo desafio-vaga.postman_collection.json. 
+##  A collection com os exemplos de requisições se encontra no arquivo desafio-vaga.postman_collection.json. 
 ## deve ser usado no postman
