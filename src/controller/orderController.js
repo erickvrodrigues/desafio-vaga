@@ -1,12 +1,15 @@
 const service = require("../service/orderService");
 class OrderController{
-    async create(req, res) {
-    try {
+    async create(req, res,next) {
+    try{
       const result = await service.create(req.body);
       res.status(201).json(result);
-    } catch (error) {
-      res.status(500).json({ error: error.message });
+
+    }catch(error){
+        next(error)
     }
+      
+    
   }
 
 }

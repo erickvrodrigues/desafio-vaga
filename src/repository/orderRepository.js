@@ -26,7 +26,11 @@ class OrderRepository{
 
     } catch (error) {
       await client.query("ROLLBACK");
-      throw error;
+      if (error.isOperational) throw error;
+
+      
+      console.error("DB Error:", error.message);
+      throw new AppError("Erro ao salvar pedido no banco", 500);
     } finally {
       client.release();
     }

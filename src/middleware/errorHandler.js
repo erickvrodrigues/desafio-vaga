@@ -1,18 +1,8 @@
-function errorHandler(err, req, res, next) {
+const errorHandler = (err, req, res, next) => {
+  const statusCode = err.statusCode || 500;
+  const message = err.isOperational ? err.message : 'Erro interno do servidor';
 
-  const status = err.statusCode || 500
+  res.status(statusCode).json({ status: 'error', message });
+};
 
-  const response = {
-    success: false,
-    error: {
-      message: err.message || "Erro interno do servidor",
-      status: status,
-      timestamp: new Date().toISOString(),
-      path: req.originalUrl
-    }
-  }
-
-  res.status(status).json(response)
-}
-
-module.exports = errorHandler
+module.exports = errorHandler;
