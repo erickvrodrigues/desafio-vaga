@@ -35,6 +35,22 @@ class OrderRepository{
       client.release();
     }
   }
+  async findById(orderId) {
+    const order = await pool.query(
+      `SELECT * FROM "Order" WHERE orderId=$1`,
+      [orderId]
+    );
+
+    const items = await pool.query(
+      `SELECT * FROM Items WHERE orderId=$1`,
+      [orderId]
+    );
+
+    return {
+      ...order.rows[0],
+      items: items.rows
+    };
+  }
 
 }
 module.exports = new OrderRepository();

@@ -4,7 +4,15 @@ const AppError = require("../errors/appError")
 
 class OrderService{
      async create(data) {
+
     const order = mapRequestToOrder(data);
+
+    const orderEntity = await repository.findById(order.orderId);
+    if(orderEntity){
+      throw new AppError("Já existe order com esse id informado",400);
+    }
+
+
 
     if(order.items == null){
       throw new AppError("E preciso conter items no pedido", 400);
@@ -33,6 +41,17 @@ class OrderService{
     console.log("ok2")
    
     return repository.create(order);
+  }
+
+  findById(id){
+    if(id == null){
+      throw new AppError("identificador não informado",400)
+    }
+
+    const order = repository.findById(id);
+    if(!order) throw new AppError("Pedido não encontrado",404)
+
+    return order;
   }
 }
 
