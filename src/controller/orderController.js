@@ -13,12 +13,19 @@ class OrderController{
   }
   async findbyid(req,res,next){
     try{
-      const result = service.findById(req.params.id);
-      res.status(200).json(result)
-
+      const result = await service.findById(req.params.id);
+      res.status(200).json(result);
     }catch(error){
       next(error)
     }     
+  }
+  async update(){
+    try {
+      await service.update(req.params.id, req.body);
+      res.json({ message: "Pedido atualizado" });
+    } catch (error) {
+      next(error)
+    }
   }
 
 }
