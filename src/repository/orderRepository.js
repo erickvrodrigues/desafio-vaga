@@ -52,5 +52,58 @@ class OrderRepository{
     };
   }
 
+  async update(orderId, order) {
+
+  const client = await pool.connect();
+
+  try {
+
+    await client.query("BEGIN");
+
+   
+    await client.query(
+      `UPDATE "Order"
+       SET value=$1, creationDate=$2
+       WHERE orderId=$3`,
+      [order.value, order.creationDate, orderId]
+    );
+
+   
+    await client.query(
+      `DELETE FROM Items WHERE orderId=$1`,
+      [orderId]
+    );
+
+    
+    for (const item of order.items) {
+
+      await client.query(
+        `INSERT INTO Items(orderId, productId, quantity, price)
+         VALUES ($1,$2,$3,$4)`,
+        [
+          orderId,
+          item.productId,
+          item.quantity,
+          item.price
+        ]
+      );
+
+    }
+
+    await client.query("COMMIT");
+
+  } catch (error) {
+
+    await client.query("ROLLBACK");
+    throw error;
+
+  } finally {
+
+    client.release();
+
+  }
+
+}
+
 }
 module.exports = new OrderRepository();
