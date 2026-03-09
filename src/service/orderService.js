@@ -70,6 +70,11 @@ class OrderService{
      return repository.update(id, data);
   }
 
+  findAll(){
+    return repository.findAll();
+  }
+  
+
   
 }
 

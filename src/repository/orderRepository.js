@@ -104,6 +104,10 @@ class OrderRepository{
   }
 
 }
+async findAll() {
+    const result = await pool.query(`SELECT * FROM "Order"`);
+    return result.rows;
+  }
 
 }
 module.exports = new OrderRepository();
