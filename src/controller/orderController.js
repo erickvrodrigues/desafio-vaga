@@ -11,6 +11,15 @@ class OrderController{
       
     
   }
+  async findbyid(req,res,next){
+    try{
+      const result = service.findById(req.params.id);
+      res.status(200).json(result)
+
+    }catch(error){
+      next(error)
+    }     
+  }
 
 }
 module.exports = new OrderController();
