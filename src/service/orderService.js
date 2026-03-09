@@ -60,12 +60,13 @@ class OrderService{
     return order;
   }
 
-  update(order,id){
+  update(id,data){
     if(id == null){
       throw new AppError("identificador não pode ser nulo",400)
     }
     this.findById(id);
-    this.validaOrder(order);
+     
+    this.validaOrder(data);
      return repository.update(id, data);
   }
 

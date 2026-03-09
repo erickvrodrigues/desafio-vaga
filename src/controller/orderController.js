@@ -19,7 +19,7 @@ class OrderController{
       next(error)
     }     
   }
-  async update(){
+  async update(req,res,next){
     try {
       await service.update(req.params.id, req.body);
       res.json({ message: "Pedido atualizado" });
