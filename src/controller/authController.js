@@ -1,4 +1,4 @@
-const service = require("../services/AuthService")
+const service = require("../service/AuthService")
 
 class AuthController {
 
@@ -7,8 +7,9 @@ class AuthController {
     try {
 
       const { username, password } = req.body
-
+       console.log("ok");
       const token = await service.login(username, password)
+      
 
       res.json(token)
 

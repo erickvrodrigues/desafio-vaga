@@ -1,5 +1,6 @@
 const express = require("express");
 const orderRoutes = require("./router/orderRoutes");
+const authRoutes = require("./router/authRoutes")
 const errorHandler = require("./middleware/errorHandler")
 
 
@@ -8,6 +9,7 @@ const errorHandler = require("./middleware/errorHandler")
 const app = express();
 
 app.use(express.json());
+app.use(authRoutes)
 app.use(orderRoutes);
 
 app.use(errorHandler)

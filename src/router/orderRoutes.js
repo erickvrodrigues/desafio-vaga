@@ -1,7 +1,13 @@
 const express = require("express");
 const controller = require("../controller/orderController");
+const authMiddleware = require("../middleware/authMiddleware")
 
 const router = express.Router();
+
+
+
+
+router.use(authMiddleware)
 
 router.post("/order/create", (req, res,next) => controller.create(req, res,next));
 router.get("/order/:id", (req, res,next) => controller.findbyid(req, res,next));

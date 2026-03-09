@@ -27,8 +27,10 @@ class OrderService{
     const order = mapRequestToOrder(data);
     this.validaOrder(order);
 
+
     const orderEntity = await repository.findById(order.orderId);
-    if(orderEntity){
+    console.log(orderEntity)
+    if(orderEntity != null && orderEntity.orderId != null){
       throw new AppError("Já existe order com esse id informado",400);
     }
 
