@@ -46,7 +46,7 @@ Para rodar este projeto, você precisará ter instalado em sua máquina:
    ```
    *(Nota: O nome da tabela `"Order"` e coluna `"orderId"` deve estar entre aspas duplas pois "order" é uma palavra reservada no SQL).*
 
-## 📥 Instalação
+##  Instalação
 
 1. Clone o repositório ou baixe os arquivos (se aplicável).
 2. Abra o terminal na raiz do projeto (onde está o arquivo `package.json`).
