@@ -35,6 +35,14 @@ class OrderController{
       next(error)
     }
   }
+  async delete(req, res) {
+    try {
+      await service.delete(req.params.id);
+      res.status(204).send();
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  }
 
 }
 module.exports = new OrderController();

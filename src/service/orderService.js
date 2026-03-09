@@ -73,6 +73,15 @@ class OrderService{
   findAll(){
     return repository.findAll();
   }
+
+  delete(id){
+      if(id == null){
+        throw new AppError("identificado não informado");
+      }
+      this.findById(id);
+      return repository.delete(id);
+      
+  }
   
 
   
